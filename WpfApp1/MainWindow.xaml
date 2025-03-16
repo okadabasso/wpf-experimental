@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resources="clr-namespace:WpfApp1.Resources"
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:views="clr-namespace:WpfApp1.Views"
         xmlns:viewModels="clr-namespace:WpfApp1.ViewModels"
@@ -94,7 +95,7 @@
                         </Style>
                     </Button.Style>
                     <Button.Content>
-                        <TextBlock FontFamily="{StaticResource FAFont}" Text="&#xf0c9;" VerticalAlignment="Center" />
+                        <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Bar}" VerticalAlignment="Center" />
                     </Button.Content>
                 </Button>
             </Grid>
@@ -129,6 +130,6 @@
             </ListBox>
         </Grid>
 
-        <Frame Grid.Column="1" Name="ContentFrame" NavigationUIVisibility="Hidden" Padding="10, 5" />
+        <Frame Grid.Column="1" Name="ContentFrame" NavigationUIVisibility="Hidden" Padding="16, 8" />
     </Grid>
 </Window>

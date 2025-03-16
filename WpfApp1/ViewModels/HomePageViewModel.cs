@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Resources;
 
 namespace WpfApp1.ViewModels
 {
@@ -16,9 +17,10 @@ namespace WpfApp1.ViewModels
         {
             var items = new List<NavigationItem>
             {
-                new NavigationItem("Home", "\uf105"),
-                new NavigationItem("Page 1", "\uf106"),
-                new NavigationItem("Page 2", "\uf107"),
+                new NavigationItem("Home", FAIcons.ChevronUp),
+                new NavigationItem("Page 1", FAIcons.ChevronDown),
+                new NavigationItem("Page 2", FAIcons.ChevronLeft),
+                new NavigationItem("Page 2", FAIcons.ChevronRight),
             };
             Items = new ObservableCollection<NavigationItem>(items);
 
