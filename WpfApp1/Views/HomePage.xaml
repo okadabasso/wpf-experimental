@@ -62,7 +62,7 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter TargetName="Bd" Property="BorderThickness" Value="1,1,1,0"/>
-                                <Setter TargetName="Bd" Property="Background" Value="LightBlue"/>
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Blue50}"/>
                             </Trigger>
                             <Trigger Property="IsSelected" Value="False">
                                 <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Gray300}"/>

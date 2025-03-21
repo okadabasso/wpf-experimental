@@ -17,6 +17,44 @@
             <Button Content="Go to Page2" Click="Button_Click"></Button>
 
         </StackPanel>
-        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="True"></DataGrid>
+        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="Name" Foreground="White"></TextBlock>
+                    </DataGridTextColumn.Header>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="4,2"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Padding" Value="1,1"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Value}" >
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="Value" Foreground="White"></TextBlock>
+                    </DataGridTextColumn.Header>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="4,2"/>
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Padding" Value="1,1"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                            
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
     </StackPanel>
 </Page>
