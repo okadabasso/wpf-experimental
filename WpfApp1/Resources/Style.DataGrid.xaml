@@ -33,7 +33,6 @@
 
     <Style TargetType="DataGridRowHeader">
         <Setter Property="Width" Value="10" />
-        
     </Style>
     <Style TargetType="DataGridRow">
         <Setter Property="Padding" Value="2,2" />
@@ -89,9 +88,10 @@
             <Trigger Property="IsEditing" Value="True">
                 <Setter Property="Background" Value="#FFEEEEEE" />
                 <Setter Property="BorderThickness" Value="1" />
-                <Setter Property="BorderBrush" Value="{StaticResource Blue300}" />
+                <Setter Property="BorderBrush" Value="{StaticResource Blue600}" />
                 <Setter Property="Foreground" Value="{StaticResource Gray800}" />
                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="Margin" Value="0" />
             </Trigger>
         </Style.Triggers>
     </Style>

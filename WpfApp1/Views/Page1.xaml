@@ -5,12 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:views="clr-namespace:WpfApp1.Views"
       xmlns:viewModels="clr-namespace:WpfApp1.ViewModels"
+      xmlns:converters="clr-namespace:WpfApp1.Converters"
 
       xmlns:local="clr-namespace:WpfApp1.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
-
+    <Page.Resources>
+        <converters:NumericConverter x:Key="NumericConverter"/>
+    </Page.Resources>
     <StackPanel Orientation="Vertical">
         <TextBlock Text="Page1"></TextBlock>
         <StackPanel Orientation="Horizontal">
@@ -21,7 +24,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="Name" Foreground="White"></TextBlock>
+                        <TextBlock Text="Name" Foreground="{StaticResource Gray100}"></TextBlock>
                     </DataGridTextColumn.Header>
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -34,9 +37,9 @@
                         </Style>
                     </DataGridTextColumn.EditingElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Value}" >
+                <DataGridTextColumn Binding="{Binding Value,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource NumericConverter},ConverterParameter=N2 }"  >
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="Value" Foreground="White"></TextBlock>
+                        <TextBlock Text="Value" Foreground="{StaticResource Gray100}"></TextBlock>
                     </DataGridTextColumn.Header>
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">

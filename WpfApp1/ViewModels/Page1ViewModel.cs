@@ -16,11 +16,11 @@ namespace WpfApp1.ViewModels
         public Page1ViewModel()
         {
             Items = new ObservableCollection<EditItem>() { 
-                new EditItem(){ Name = "item 1", Value = "1001" },
-                new EditItem(){ Name = "item 2", Value = "1002" },
-                new EditItem(){ Name = "item 3", Value = "1003" },
-                new EditItem(){ Name = "item 4", Value = "1004" },
-                new EditItem(){ Name = "item 5", Value = "1005" },
+                new EditItem(){ Name = "item 1", Value = 1001 },
+                new EditItem(){ Name = "item 2", Value = 1002.2M },
+                new EditItem(){ Name = "item 3", Value = 1003 },
+                new EditItem(){ Name = "item 4", Value = 1004 },
+                new EditItem(){ Name = "item 5", Value = 1005 },
             };
         }
     }
@@ -29,7 +29,7 @@ namespace WpfApp1.ViewModels
         [ObservableProperty]
         public partial string Name { get; set; } = String.Empty;
         [ObservableProperty]
-        public partial string Value { get; set; } = String.Empty;
+        public partial decimal? Value { get; set; } = null;
 
     }
 }
