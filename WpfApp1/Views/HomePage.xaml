@@ -12,39 +12,194 @@
       Title="HomePage">
     <Page.Resources>
         <FontFamily x:Key="FAFont">pack://application:,,,/WpfApp1;component/Assets/fontawesome/otfs/Font Awesome 6 Free-Solid-900.otf#Font Awesome 6 Free Solid</FontFamily>
+        <Style TargetType="TabControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabControl">
+                        <Grid KeyboardNavigation.TabNavigation="Local">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderBrush="{StaticResource Gray300}" BorderThickness="1,0,1,0">
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ScrollViewer Grid.Column="0" x:Name="tabScroll" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                        <TabPanel x:Name="HeaderPanel" IsItemsHost="True" Panel.ZIndex="1" KeyboardNavigation.TabIndex="1"  />
+                                    </ScrollViewer>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" DockPanel.Dock="Right" Margin="4,0,0,0" VerticalAlignment="Bottom">
+                                        <Button x:Name="tabScrollLeft" Click="tabScrollLeft_Click" Width="20" Height="20" Padding="2">
+                                            <Button.Content>
+                                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronLeft}"></TextBlock>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button x:Name="tabScrollRight" Click="tabScrollRight_Click" Width="20" Height="20" Padding="2">
+                                            <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronRight}"></TextBlock>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+
+                            </Border>
+                            <ContentPresenter x:Name="PART_SelectedContentHost" Grid.Row="1" ContentSource="SelectedContent"/>
+                        </Grid>
+                    </ControlTemplate>
+                    
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid x:Name="Panel">
+                            <Border x:Name="Bd" BorderBrush="{StaticResource Gray300}" BorderThickness="1,1,1,1" Background="{TemplateBinding Background}" Padding="10,2" Margin="-1,0,0,0">
+                                <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="BorderThickness" Value="1,1,1,0"/>
+                                <Setter TargetName="Bd" Property="Background" Value="LightBlue"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Gray300}"/>
+                                <Setter TargetName="Bd" Property="Background" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ContentSite" Property="TextElement.Foreground" Value="{StaticResource Gray300}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
     <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
-        </Grid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Home}" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center" Margin="8,0,0,0"></TextBlock>
-            </StackPanel>
-        <Grid Grid.Row="2">
-            <ListBox Grid.Row="1" x:Name="NavigationMenu"
-                     ItemsSource="{Binding Items}"
-                 BorderBrush="Black" Width="250"
-                     >
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid VerticalAlignment="Center">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="32" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" FontFamily="{StaticResource FAFont}" Text="{Binding Icon}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding Text}" Margin="10" Foreground="Black" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="tab" Grid.Column="0" Background="White" BorderThickness="1" BorderBrush="{StaticResource Gray300}" TabStripPlacement="Top" SelectedIndex="10">
+                <TabItem Header="Home" Background="White">
+                    <Grid Background="White" >
+                        <TextBlock Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
 
-        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="About" Background="White">
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                        </Grid>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Home}" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center" Margin="8,0,0,0"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                            <Border Width="16" Height="16" BorderThickness="1" BorderBrush="Black" Margin="0,0,16,0" HorizontalAlignment="Center">
+                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronRight}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+                            </Border>
+                            <Border Width="16" Height="16" BorderThickness="1" BorderBrush="Black">
+                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronDown}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+                            </Border>
+                        </StackPanel>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Contact" Background="White">
+                    <Grid Background="White">
+                        <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                    </Grid>
+                </TabItem>
+            </TabControl>
     </Grid>
 </Page>

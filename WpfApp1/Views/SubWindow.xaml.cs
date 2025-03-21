@@ -10,27 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.ViewModels;
 
 namespace WpfApp1.Views
 {
     /// <summary>
-    /// Page1.xaml の相互作用ロジック
+    /// SubWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class Page1 : Page
+    public partial class SubWindow : Window
     {
-        public Page1()
+        public SubWindow()
         {
             InitializeComponent();
-            DataContext = new Page1ViewModel();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new SubWindow();
-            window.Show();
+            DataContext = new ViewModels.SubwindowViewModel();
         }
     }
 }

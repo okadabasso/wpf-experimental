@@ -38,15 +38,20 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
-                        <Border Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2">
-                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                        <Border Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,0,0,0">
+                            <Grid>
+                                <Rectangle Name="LeftBorder" Fill="Transparent" Width="4" HorizontalAlignment="Left" Visibility="Collapsed" Margin="4,2,2,2" Height="16"/>
+                                <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4,0,0,0"/>
+                            </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="#FF0C7D9D"/>
+                                <Setter TargetName="LeftBorder" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="LeftBorder" Property="Fill" Value="#FF0C7D9D"/>
+                                <!-- Setter TargetName="Border" Property="Background" Value="#FF0C7D9D"/ -->
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="#FF1E90FF"/>
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray900}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -60,7 +65,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Background="#2D2D30">
+        <Grid Grid.Column="0" Background="{StaticResource Gray800}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -73,7 +78,7 @@
                         Margin="8, 4"
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Center" 
-                         Background="#2D2D30" Foreground="White" >
+                        Background="{StaticResource Gray800}" Foreground="{StaticResource Gray50}" >
                     <Button.Style>
                         <Style TargetType="Button">
                             <Style.Triggers>
@@ -95,14 +100,14 @@
                         </Style>
                     </Button.Style>
                     <Button.Content>
-                        <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Bar}" VerticalAlignment="Center" />
+                        <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Bar}" VerticalAlignment="Center" Background="{StaticResource Gray800}" Foreground="{StaticResource Gray50}"/>
                     </Button.Content>
                 </Button>
             </Grid>
             <ListBox Grid.Row="1" x:Name="NavigationMenu"
                      ItemsSource="{Binding NavigationItems}"
                      SelectionChanged="NavigationMenu_SelectionChanged"
-                     Background="#2D2D30" Foreground="White"
+                     Background="{StaticResource Gray800}" Foreground="{StaticResource Gray50}"
                      BorderBrush="Transparent" Width="50"
                      Padding="0"
                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
@@ -118,11 +123,13 @@
                                        Text="{Binding Icon}" 
                                        HorizontalAlignment="Center" 
                                        VerticalAlignment="Center" 
+                                       Foreground="{StaticResource Gray50}"
                                        />
                             <TextBlock Grid.Column="1" Text="{Binding Text}"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=Width, Converter={StaticResource WidthToVisibilityConverter}}"
+                                       Foreground="{StaticResource Gray50}"
                                        />
                         </Grid>
                     </DataTemplate>

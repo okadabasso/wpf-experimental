@@ -13,7 +13,10 @@
 
     <StackPanel Orientation="Vertical">
         <TextBlock Text="Page1"></TextBlock>
-        <Button Content="Go to Page2" Click="Button_Click"></Button>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Go to Page2" Click="Button_Click"></Button>
+
+        </StackPanel>
         <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="True"></DataGrid>
     </StackPanel>
 </Page>

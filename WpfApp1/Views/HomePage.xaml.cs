@@ -27,5 +27,45 @@ namespace WpfApp1.Views
 
             DataContext = new HomePageViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void tabScrollLeft_Click(object sender, RoutedEventArgs e)
+        {
+            var tabScroll = GetScrollViewer(tab);
+            if (tabScroll != null)
+            {
+                double newOffset = Math.Max(tabScroll.HorizontalOffset - 50, 0);
+                tabScroll.ScrollToHorizontalOffset(newOffset);
+            }
+
+        }
+
+        private void tabScrollRight_Click(object sender, RoutedEventArgs e)
+        {
+
+            var tabScroll = GetScrollViewer(tab);
+            if (tabScroll != null)
+            {
+                double newOffset = Math.Min(tabScroll.HorizontalOffset + 50, tabScroll.ExtentWidth - tabScroll.ViewportWidth);
+                tabScroll.ScrollToHorizontalOffset(newOffset);
+            }
+
+        }
+        private ScrollViewer GetScrollViewer(DependencyObject depObj)
+        {
+            if (depObj is ScrollViewer) return (ScrollViewer)depObj;
+
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                ScrollViewer result = GetScrollViewer(child);
+                if (result != null) return result;
+            }
+            return null!;
+        }
     }
 }
