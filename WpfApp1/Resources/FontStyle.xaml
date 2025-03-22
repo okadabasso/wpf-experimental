@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <FontFamily x:Key="FAFont">pack://application:,,,/WpfApp1;component/Assets/fontawesome/otfs/Font Awesome 6 Free-Solid-900.otf#Font Awesome 6 Free Solid</FontFamily>
-    <sys:Double x:Key="DefaultFontSize">16</sys:Double>
-    <sys:Double x:Key="SmallFontSize">14</sys:Double>
-    <sys:Double x:Key="LargeFontSize">20</sys:Double>
+    <sys:Double x:Key="DefaultFontSize">14</sys:Double>
+    <sys:Double x:Key="SmallFontSize">12</sys:Double>
+    <sys:Double x:Key="LargeFontSize">16</sys:Double>
 </ResourceDictionary>

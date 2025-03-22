@@ -16,11 +16,11 @@
     </Page.Resources>
     <StackPanel Orientation="Vertical">
         <TextBlock Text="Page1"></TextBlock>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Go to Page2" Click="Button_Click"></Button>
+        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+            <Button Content="Open subwindow" Click="Button_Click"></Button>
 
         </StackPanel>
-        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False" Margin="0,8,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}">
                     <DataGridTextColumn.Header>

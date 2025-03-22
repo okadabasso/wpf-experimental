@@ -10,7 +10,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="632" Width="1024">
     <Window.Resources>
-        <FontFamily x:Key="FAFont">pack://application:,,,/WpfApp1;component/Assets/fontawesome/otfs/Font Awesome 6 Free-Solid-900.otf#Font Awesome 6 Free Solid</FontFamily>
 
         <!-- スライドインアニメーション -->
         <Storyboard x:Key="SlideIn">
@@ -48,7 +47,6 @@
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter TargetName="LeftBorder" Property="Visibility" Value="Visible"/>
                                 <Setter TargetName="LeftBorder" Property="Fill" Value="#FF0C7D9D"/>
-                                <!-- Setter TargetName="Border" Property="Background" Value="#FF0C7D9D"/ -->
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray900}"/>

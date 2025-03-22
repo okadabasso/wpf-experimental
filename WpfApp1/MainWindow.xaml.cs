@@ -27,6 +27,7 @@ public partial class MainWindow : Window
         DataContext = new MainWindowViewModel();
 
         ContentFrame.Navigate(new HomePage());
+        NavigationMenu.SelectedIndex = 0;
     }
 
 
