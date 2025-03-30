@@ -9,9 +9,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.ViewModels;
 using WpfApp1.Views;
 using WpfApp1.ViewModels;
 using System.Globalization;
+using System.Reflection;
 namespace WpfApp1;
 
 /// <summary>
@@ -59,18 +61,14 @@ public partial class MainWindow : Window
     {
         if (NavigationMenu.SelectedItem is NavigationItem selectedItem)
         {
-            switch (selectedItem.Text.ToString())
+            var viewConstructor = selectedItem.View.GetConstructor(Type.EmptyTypes);
+            if(viewConstructor == null)
             {
-                case "Home":
-                    ContentFrame.Navigate(new HomePage());
-                    break;
-                case "Page 1":
-                    ContentFrame.Navigate(new Page1());
-                    break;
-                case "Page 2":
-                    ContentFrame.Navigate(new Page2());
-                    break;
+                throw new InvalidOperationException("View must have a parameterless constructor");
             }
+            var view = viewConstructor.Invoke(null);
+            ContentFrame.Navigate(view);
+
         }
     }
 }

@@ -9,8 +9,159 @@
       Title="Page2">
 
     <StackPanel Orientation="Vertical">
-        <TextBlock Text="Page2"></TextBlock>
-        <Button Content="Go to Page1" Click="Button_Click"></Button>
+        <StackPanel>
+            <TextBlock Text="Form Elements" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+        </StackPanel>
+        <ScrollViewer Margin="0,16,0,0">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="Button"  Margin="0,0,8,0" Style="{StaticResource Button.Default}"></Button>
+                    <Button Style="{StaticResource Button.Medium.Primary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Primary" Style="{StaticResource ButtonText.Primary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Medium.Secondary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Secondary" Style="{StaticResource ButtonText.Secondary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Medium.Danger}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Danger" Style="{StaticResource ButtonText.Danger}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Medium.Warning}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Warning" Style="{StaticResource ButtonText.Warning}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Medium.Success}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Success" Style="{StaticResource ButtonText.Success}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Medium.Info}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Info" Style="{StaticResource ButtonText.Info}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Content="Sample"  Height="48"/>
+                </StackPanel>
 
+
+                <StackPanel Orientation="Horizontal" Margin="0,16,0,0" VerticalAlignment="Center">
+                    <Button Content="Button" Margin="0,0,8,0"  Style="{StaticResource Button.Default}"></Button>
+                    <Button Style="{StaticResource OutlineButton.Medium.Primary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Primary" Style="{StaticResource OutlineButtonText.Primary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Medium.Secondary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Secondary" Style="{StaticResource OutlineButtonText.Secondary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Medium.Danger}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Danger" Style="{StaticResource OutlineButtonText.Danger}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Medium.Warning}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Warning" Style="{StaticResource OutlineButtonText.Warning}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Medium.Success}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Success" Style="{StaticResource OutlineButtonText.Success}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Medium.Info}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Info" Style="{StaticResource OutlineButtonText.Info}" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,16,0,0" VerticalAlignment="Center">
+                    <Button Margin="0,0,8,0" Style="{StaticResource Button.Small}">
+                        <Button.Content>
+                            <TextBlock Text="Button" Style="{StaticResource ButtonText.Default}"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Small.Primary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Primary" Style="{StaticResource ButtonText.Primary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Small.Secondary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Secondary" Style="{StaticResource ButtonText.Secondary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Small.Danger}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Danger" Style="{StaticResource ButtonText.Danger}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Small.Warning}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Warning" Style="{StaticResource ButtonText.Warning}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Small.Success}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Success" Style="{StaticResource ButtonText.Success}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource Button.Small.Info}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Info" Style="{StaticResource ButtonText.Info}" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,16,0,0" VerticalAlignment="Center">
+                    <Button Margin="0,0,8,0" Style="{StaticResource Button.Small}">
+                        <Button.Content>
+                            <TextBlock Text="Button" Style="{StaticResource ButtonText.Default}"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Small.Primary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Primary" Style="{StaticResource OutlineButtonText.Primary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Small.Secondary}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Secondary" Style="{StaticResource OutlineButtonText.Secondary}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Small.Danger}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Danger" Style="{StaticResource OutlineButtonText.Danger}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Small.Warning}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Warning" Style="{StaticResource OutlineButtonText.Warning}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Small.Success}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Success" Style="{StaticResource OutlineButtonText.Success}" />
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource OutlineButton.Small.Info}" Margin="0,0,8,0">
+                        <Button.Content>
+                            <TextBlock Text="Info" Style="{StaticResource OutlineButtonText.Info}" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            
+        </ScrollViewer>
+        
     </StackPanel>
 </Page>

@@ -15,14 +15,17 @@ namespace WpfApp1.ViewModels
         [ObservableProperty]
         public partial string Icon { get; set; } = "Icon";
 
+        public Type View { get; set; }
+
         public NavigationItem()
         {
          
         }
-        public NavigationItem(string text, string icon)
+        public NavigationItem(string text, string icon, Type view)
         {
             Text = text;
             Icon = icon;
+            View = view;
         }
 
     }

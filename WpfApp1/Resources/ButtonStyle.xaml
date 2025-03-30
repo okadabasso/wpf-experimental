@@ -1,17 +1,39 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="FontStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
+    <CornerRadius x:Key="ButtonCornerRadius">4</CornerRadius>
+    <Thickness x:Key="ButtonPaddingMedium">14,7</Thickness>
+    <Thickness x:Key="ButtonPaddingSmall">6,3</Thickness>
+
     <Style TargetType="Button">
-        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
-        <Setter Property="Padding" Value="8,4"  />
-        <Setter Property="BorderBrush" Value="{StaticResource Gray300}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Default.Border}" />
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Foreground" Value="{StaticResource Gray800}" />
-        <Setter Property="Background" Value="{StaticResource Gray100}" />
+        <Setter Property="Foreground" Value="{StaticResource Filled.Default.Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Default.Background}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+
+    </Style>
+    <Style x:Key="Button.Default" TargetType="Button">
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingMedium}"  />
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Default.Border}" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{StaticResource Filled.Default.Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Default.Background}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -19,16 +41,57 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="2"
-                            Padding="{TemplateBinding Padding}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{StaticResource Gray200}"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Default.BackgroundFocused}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{StaticResource Gray300}"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Default.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Button.Small" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}" />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}"  />
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Default.Border}" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{StaticResource Filled.Default.Foreground}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Default.Background}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Default.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Default.BackgroundFocused}"/>
                         </Trigger>
                         <!-- 無効状態の定義 -->
                         <Trigger Property="IsEnabled" Value="False">
@@ -41,4 +104,480 @@
         </Setter>
     </Style>
 
+    <Style x:Key="Button.Medium.Primary" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="Background" Value="{StaticResource Filled.Primary.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Primary.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                           >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Primary.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Primary.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="Button.Medium.Secondary" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Secondary.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Secondary.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Secondary.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Secondary.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="Button.Medium.Danger" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Danger.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Danger.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Danger.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Danger.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="Button.Medium.Warning" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Warning.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Warning.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Warning.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Warning.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="Button.Medium.Success" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Success.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Success.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Success.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Success.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Button.Medium.Info" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="Background" Value="{StaticResource Filled.Info.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Filled.Info.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Info.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Filled.Info.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="OutlineButton.Medium.Primary" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
+        <Setter Property="Background" Value="{StaticResource Outlined.Primary.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Outlined.Primary.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Primary.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Primary.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="OutlineButton.Medium.Secondary" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="Background" Value="{StaticResource Outlined.Secondary.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Outlined.Secondary.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Secondary.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Secondary.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="OutlineButton.Medium.Danger" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="Background" Value="{StaticResource Outlined.Danger.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Outlined.Danger.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Danger.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Danger.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="OutlineButton.Medium.Warning" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="Background" Value="{StaticResource Outlined.Warning.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Outlined.Warning.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Warning.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Warning.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    <Style x:Key="OutlineButton.Medium.Success" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="Background" Value="{StaticResource Outlined.Success.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Outlined.Success.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Success.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Success.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="OutlineButton.Medium.Info" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="Background" Value="{StaticResource Outlined.Info.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Outlined.Info.Border}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                            >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Info.BackgroundFocused}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Outlined.Info.BackgroundFocused}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Button.Small.Primary" TargetType="Button" BasedOn="{StaticResource Button.Medium.Primary }">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="Button.Small.Secondary" TargetType="Button" BasedOn="{StaticResource Button.Medium.Secondary }">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="Button.Small.Danger" TargetType="Button" BasedOn="{StaticResource Button.Medium.Danger}">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="Button.Small.Warning" TargetType="Button" BasedOn="{StaticResource Button.Medium.Warning }">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="Button.Small.Success" TargetType="Button" BasedOn="{StaticResource Button.Medium.Success}">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="Button.Small.Info" TargetType="Button" BasedOn="{StaticResource Button.Medium.Info}">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="OutlineButton.Small.Primary" TargetType="Button" BasedOn="{StaticResource OutlineButton.Medium.Primary }">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="OutlineButton.Small.Secondary" TargetType="Button" BasedOn="{StaticResource OutlineButton.Medium.Secondary }">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="OutlineButton.Small.Danger" TargetType="Button" BasedOn="{StaticResource OutlineButton.Medium.Danger}">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="OutlineButton.Small.Warning" TargetType="Button" BasedOn="{StaticResource OutlineButton.Medium.Warning }">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="OutlineButton.Small.Success" TargetType="Button" BasedOn="{StaticResource OutlineButton.Medium.Success}">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+    <Style x:Key="OutlineButton.Small.Info" TargetType="Button" BasedOn="{StaticResource OutlineButton.Medium.Info}">
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
+        <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />
+    </Style>
+
+    <Style x:Key="ButtonText.Default" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Filled.Default.Foreground}"/>
+    </Style>
+    <Style x:Key="ButtonText.Primary" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Filled.Primary.Foreground}"/>
+    </Style>
+    <Style x:Key="ButtonText.Secondary" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Filled.Secondary.Foreground}"/>
+    </Style>
+    <Style x:Key="ButtonText.Danger" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Filled.Danger.Foreground}"/>
+    </Style>
+    <Style x:Key="ButtonText.Warning" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Filled.Warning.Foreground}"/>
+    </Style>
+    <Style x:Key="ButtonText.Success" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Filled.Success.Foreground}"/>
+    </Style>
+    <Style x:Key="ButtonText.Info" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Filled.Info.Foreground}"/>
+    </Style>
+    <Style x:Key="OutlineButtonText.Primary" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Outlined.Primary.Foreground}"/>
+    </Style>
+    <Style x:Key="OutlineButtonText.Secondary" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Outlined.Secondary.Foreground}"/>
+    </Style>
+    <Style x:Key="OutlineButtonText.Danger" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Outlined.Danger.Foreground}"/>
+    </Style>
+    <Style x:Key="OutlineButtonText.Warning" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Outlined.Warning.Foreground}"/>
+    </Style>
+    <Style x:Key="OutlineButtonText.Success" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Outlined.Success.Foreground}"/>
+    </Style>
+    <Style x:Key="OutlineButtonText.Info" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Outlined.Info.Foreground}"/>
+    </Style>
 </ResourceDictionary>

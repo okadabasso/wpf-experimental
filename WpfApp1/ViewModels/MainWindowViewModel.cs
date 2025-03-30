@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Resources;
+using WpfApp1.Views;
 
 namespace WpfApp1.ViewModels
 {
@@ -20,9 +21,10 @@ namespace WpfApp1.ViewModels
         {
             NavigationItems = new ObservableCollection<NavigationItem>
             {
-                new NavigationItem("Home", FAIcons.Home),
-                new NavigationItem("Page 1", FAIcons.Document),
-                new NavigationItem("Page 2", FAIcons.List),
+                new NavigationItem("Home", FAIcons.Home, typeof(HomePage)),
+                new NavigationItem("Page 1", FAIcons.Document, typeof(Page1)),
+                new NavigationItem("Page 2", FAIcons.List, typeof(Page2)),
+                new NavigationItem("Form Elements", FAIcons.List, typeof(FormElementSample)),
             };
         }
     }
