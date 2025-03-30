@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
     <CornerRadius x:Key="ButtonCornerRadius">4</CornerRadius>
     <Thickness x:Key="ButtonPaddingMedium">14,7</Thickness>
-    <Thickness x:Key="ButtonPaddingSmall">6,3</Thickness>
+    <Thickness x:Key="ButtonPaddingSmall">12,6</Thickness>
 
     <Style TargetType="Button">
         <Setter Property="BorderBrush" Value="{StaticResource Filled.Default.Border}" />
@@ -45,7 +45,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" />
 
                     </Border>
                     <ControlTemplate.Triggers>
@@ -83,7 +83,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
 
                     </Border>
                     <ControlTemplate.Triggers>
@@ -116,7 +116,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                            >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -149,7 +149,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -182,7 +182,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -215,8 +215,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
-
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -249,7 +248,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -281,7 +280,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -313,7 +312,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -345,7 +344,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -377,7 +376,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -409,7 +408,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -441,7 +440,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -472,7 +471,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{StaticResource ButtonCornerRadius}"
                             >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="White" Margin="{TemplateBinding Padding}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

@@ -675,7 +675,7 @@
     <SolidColorBrush x:Key="Filled.Warning.Background" Color="{StaticResource Color_Yellow400}"></SolidColorBrush>
     <SolidColorBrush x:Key="Filled.Warning.Border" Color="{StaticResource Color_Yellow600}"></SolidColorBrush>
     <SolidColorBrush x:Key="Filled.Warning.BackgroundFocused" Color="{StaticResource Color_Yellow500}"></SolidColorBrush>
-    <SolidColorBrush x:Key="Filled.Warning.Foreground" Color="{StaticResource Color_Gray50}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Filled.Warning.Foreground" Color="{StaticResource Color_Gray700}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="Filled.Success.Background" Color="{StaticResource Color_Green600}"></SolidColorBrush>
     <SolidColorBrush x:Key="Filled.Success.Border" Color="{StaticResource Color_Green800}"></SolidColorBrush>
@@ -688,33 +688,33 @@
     <SolidColorBrush x:Key="Filled.Info.Foreground" Color="{StaticResource Color_Gray50}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="Outlined.Primary.Background" Color="White"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Primary.Border" Color="{StaticResource Color_Indigo600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Primary.Border" Color="{StaticResource Color_Indigo700}"></SolidColorBrush>
     <SolidColorBrush x:Key="Outlined.Primary.BackgroundFocused" Color="{StaticResource Color_Indigo100}"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Primary.Foreground" Color="{StaticResource Color_Indigo600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Primary.Foreground" Color="{StaticResource Color_Indigo700}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="Outlined.Secondary.Background" Color="White"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Secondary.Border" Color="{StaticResource Color_Gray600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Secondary.Border" Color="{StaticResource Color_Gray700}"></SolidColorBrush>
     <SolidColorBrush x:Key="Outlined.Secondary.BackgroundFocused" Color="{StaticResource Color_Gray100}"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Secondary.Foreground" Color="{StaticResource Color_Gray600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Secondary.Foreground" Color="{StaticResource Color_Gray700}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="Outlined.Danger.Background" Color="White"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Danger.Border" Color="{StaticResource Color_Vermilion900}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Danger.Border" Color="{StaticResource Color_Vermilion700}"></SolidColorBrush>
     <SolidColorBrush x:Key="Outlined.Danger.BackgroundFocused" Color="{StaticResource Color_Vermilion100}"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Danger.Foreground" Color="{StaticResource Color_Vermilion600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Danger.Foreground" Color="{StaticResource Color_Vermilion700}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="Outlined.Warning.Background" Color="White"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Warning.Border" Color="{StaticResource Color_Yellow600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Warning.Border" Color="{StaticResource Color_Yellow700}"></SolidColorBrush>
     <SolidColorBrush x:Key="Outlined.Warning.BackgroundFocused" Color="{StaticResource Color_Yellow100}"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Warning.Foreground" Color="{StaticResource Color_Yellow600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Warning.Foreground" Color="{StaticResource Color_Yellow700}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="Outlined.Success.Background" Color="White"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Success.Border" Color="{StaticResource Color_Green600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Success.Border" Color="{StaticResource Color_Green700}"></SolidColorBrush>
     <SolidColorBrush x:Key="Outlined.Success.BackgroundFocused" Color="{StaticResource Color_Green100}"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Success.Foreground" Color="{StaticResource Color_Green600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Success.Foreground" Color="{StaticResource Color_Green700}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="Outlined.Info.Background" Color="White"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Info.Border" Color="{StaticResource Color_Cyan600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Info.Border" Color="{StaticResource Color_Cyan700}"></SolidColorBrush>
     <SolidColorBrush x:Key="Outlined.Info.BackgroundFocused" Color="{StaticResource Color_Cyan100}"></SolidColorBrush>
-    <SolidColorBrush x:Key="Outlined.Info.Foreground" Color="{StaticResource Color_Cyan600}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Outlined.Info.Foreground" Color="{StaticResource Color_Cyan700}"></SolidColorBrush>
 
 </ResourceDictionary>

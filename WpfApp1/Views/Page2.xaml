@@ -10,7 +10,7 @@
 
     <StackPanel Orientation="Vertical">
         <StackPanel>
-            <TextBlock Text="Form Elements" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+            <TextBlock Text="Buttons" FontSize="{StaticResource LargeFontSize}"></TextBlock>
         </StackPanel>
         <ScrollViewer Margin="0,16,0,0">
             <StackPanel Orientation="Vertical">
