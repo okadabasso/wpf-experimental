@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using WpfApp1.Resources;
 using WpfApp1.Views;
 
@@ -23,7 +24,7 @@ namespace WpfApp1.ViewModels
             {
                 new NavigationItem("Home", FAIcons.Home, typeof(HomePage)),
                 new NavigationItem("Page 1", FAIcons.Document, typeof(Page1)),
-                new NavigationItem("Buttons", FAIcons.List, typeof(Page2)),
+                new NavigationItem("Buttons", FAIcons.List, typeof(ButtonSamplePage)),
                 new NavigationItem("Form Elements", FAIcons.List, typeof(FormElementSample)),
             };
         }
