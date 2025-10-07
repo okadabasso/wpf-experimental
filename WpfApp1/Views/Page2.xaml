@@ -14,39 +14,40 @@
         </StackPanel>
         <ScrollViewer Margin="0,16,0,0">
             <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Button Content="Button"  Margin="0,0,8,0" Style="{StaticResource Button.Default}"></Button>
-                    <Button Style="{StaticResource Button.Medium.Primary}" Margin="0,0,8,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                    <Button Content="Button"  Margin="0,0,8,0" Style="{StaticResource Button.Default}" VerticalAlignment="Center"></Button>
+                    <Button Style="{StaticResource Button.Medium.Primary}" Margin="0,0,8,0" VerticalAlignment="Center">
                         <Button.Content>
                             <TextBlock Text="Primary" Style="{StaticResource ButtonText.Primary}" />
                         </Button.Content>
                     </Button>
-                    <Button Style="{StaticResource Button.Medium.Secondary}" Margin="0,0,8,0">
+                    <Button Style="{StaticResource Button.Medium.Secondary}" Margin="0,0,8,0" VerticalAlignment="Center">
                         <Button.Content>
                             <TextBlock Text="Secondary" Style="{StaticResource ButtonText.Secondary}" />
                         </Button.Content>
                     </Button>
-                    <Button Style="{StaticResource Button.Medium.Danger}" Margin="0,0,8,0">
+                    <Button Style="{StaticResource Button.Medium.Danger}" Margin="0,0,8,0" VerticalAlignment="Center">
                         <Button.Content>
                             <TextBlock Text="Danger" Style="{StaticResource ButtonText.Danger}" />
                         </Button.Content>
                     </Button>
-                    <Button Style="{StaticResource Button.Medium.Warning}" Margin="0,0,8,0">
+                    <Button Style="{StaticResource Button.Medium.Warning}" Margin="0,0,8,0" VerticalAlignment="Center">
                         <Button.Content>
                             <TextBlock Text="Warning" Style="{StaticResource ButtonText.Warning}" />
                         </Button.Content>
                     </Button>
-                    <Button Style="{StaticResource Button.Medium.Success}" Margin="0,0,8,0">
+                    <Button Style="{StaticResource Button.Medium.Success}" Margin="0,0,8,0" VerticalAlignment="Center">
                         <Button.Content>
                             <TextBlock Text="Success" Style="{StaticResource ButtonText.Success}" />
                         </Button.Content>
                     </Button>
-                    <Button Style="{StaticResource Button.Medium.Info}" Margin="0,0,8,0">
+                    <Button Style="{StaticResource Button.Medium.Info}" Margin="0,0,8,0" VerticalAlignment="Center">
                         <Button.Content>
                             <TextBlock Text="Info" Style="{StaticResource ButtonText.Info}" />
                         </Button.Content>
                     </Button>
-                    <Button Content="Sample"  Height="48"/>
+                    <Button Content="Sample"/>
+                    <TextBox Width="200" Height="48" Margin="8,0,0,0" VerticalAlignment="Center" Text="Sample TextBox"/>
                 </StackPanel>
 
 

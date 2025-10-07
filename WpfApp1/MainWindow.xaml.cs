@@ -11,11 +11,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.ViewModels;
 using WpfApp1.Views;
-using WpfApp1.ViewModels;
 using System.Globalization;
 using System.Reflection;
 namespace WpfApp1;
-
+    
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
@@ -62,7 +61,7 @@ public partial class MainWindow : Window
         if (NavigationMenu.SelectedItem is NavigationItem selectedItem)
         {
             var viewConstructor = selectedItem.View.GetConstructor(Type.EmptyTypes);
-            if(viewConstructor == null)
+            if (viewConstructor == null)
             {
                 throw new InvalidOperationException("View must have a parameterless constructor");
             }

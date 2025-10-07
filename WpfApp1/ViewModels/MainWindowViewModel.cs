@@ -23,7 +23,7 @@ namespace WpfApp1.ViewModels
             {
                 new NavigationItem("Home", FAIcons.Home, typeof(HomePage)),
                 new NavigationItem("Page 1", FAIcons.Document, typeof(Page1)),
-                new NavigationItem("Page 2", FAIcons.List, typeof(Page2)),
+                new NavigationItem("Buttons", FAIcons.List, typeof(Page2)),
                 new NavigationItem("Form Elements", FAIcons.List, typeof(FormElementSample)),
             };
         }

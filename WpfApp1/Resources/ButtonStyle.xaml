@@ -15,8 +15,6 @@
         <Setter Property="Foreground" Value="{StaticResource Filled.Default.Foreground}" />
         <Setter Property="Background" Value="{StaticResource Filled.Default.Background}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
 
@@ -29,8 +27,6 @@
         <Setter Property="Foreground" Value="{StaticResource Filled.Default.Foreground}" />
         <Setter Property="Background" Value="{StaticResource Filled.Default.Background}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
 
