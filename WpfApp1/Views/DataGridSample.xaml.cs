@@ -26,11 +26,5 @@ namespace WpfApp1.Views
             InitializeComponent();
             DataContext = new DataGridSampeViewModel();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new SubWindow();
-            window.Show();
-        }
     }
 }

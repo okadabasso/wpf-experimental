@@ -104,10 +104,11 @@
         </Style>
     </Page.Resources>
     <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <TabControl x:Name="tab" Grid.Column="0" Background="White" BorderThickness="1" BorderBrush="{StaticResource Gray300}" TabStripPlacement="Top"  SelectedIndex="10">
+        <TabControl x:Name="tab" 
+                    Grid.Column="0" 
+                    Background="White" 
+                    TabStripPlacement="Top"  
+                    SelectedIndex="0">
             <TabControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <TabPanel IsItemsHost="True"/>

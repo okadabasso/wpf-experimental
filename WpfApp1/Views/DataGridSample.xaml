@@ -15,11 +15,7 @@
         <converters:NumericConverter x:Key="NumericConverter"/>
     </Page.Resources>
     <StackPanel Orientation="Vertical">
-        <TextBlock Text="Page1"></TextBlock>
-        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-            <Button Content="Open subwindow" Click="Button_Click"></Button>
-
-        </StackPanel>
+        <TextBlock Text="DataGridSample" Style="{StaticResource TextBlock.PageHeader}"></TextBlock>
         <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False" Margin="0,8,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}">

@@ -9,6 +9,6 @@
       Title="FormElementSample">
 
     <Grid>
-        <TextBlock Text="Form Elements" />
+        <TextBlock Text="Form Elements" Style="{StaticResource TextBlock.PageHeader}" />
     </Grid>
 </Page>

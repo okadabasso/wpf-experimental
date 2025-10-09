@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1.Views
 {
     /// <summary>
-    /// SubWindow.xaml の相互作用ロジック
+    /// TabView1.xaml の相互作用ロジック
     /// </summary>
-    public partial class SubWindow : Window
+    public partial class TabView1 : UserControl
     {
-        public SubWindow()
+        public TabView1()
         {
             InitializeComponent();
-            DataContext = new ViewModels.SubwindowViewModel();
         }
     }
 }
