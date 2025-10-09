@@ -487,6 +487,38 @@
         </Setter>
     </Style>
 
+    <Style x:Key="Button.Medium.Dark" TargetType="Button" BasedOn="{StaticResource Button.Default}">
+        <Setter Property="Background" Value="{StaticResource Gray800}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Gray900}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource ButtonCornerRadius}"
+                           >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Gray900}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource Gray900}"/>
+                        </Trigger>
+                        <!-- 無効状態の定義 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
     <Style x:Key="Button.Small.Primary" TargetType="Button" BasedOn="{StaticResource Button.Medium.Primary }">
         <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"  />
         <Setter Property="Padding" Value="{StaticResource ButtonPaddingSmall}" />

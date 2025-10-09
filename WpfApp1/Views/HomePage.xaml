@@ -84,8 +84,15 @@
         <TabControl x:Name="tab" Grid.Column="0" Background="White" BorderThickness="1" BorderBrush="{StaticResource Gray300}" TabStripPlacement="Top" SelectedIndex="10">
                 <TabItem Header="Home" Background="White">
                     <Grid Background="White" >
-                        <TextBlock Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
-
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                        <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Bar}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Home}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
                     </Grid>
                 </TabItem>
                 <TabItem Header="About" Background="White">
@@ -99,7 +106,7 @@
                             <TextBlock Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
                         </Grid>
                         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Home}" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Home}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center" Margin="8,0,0,0"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Row="2" Orientation="Horizontal">
