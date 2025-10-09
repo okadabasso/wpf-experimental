@@ -24,7 +24,7 @@ namespace WpfApp1.Views
         public DataGridSample()
         {
             InitializeComponent();
-            DataContext = new Page1ViewModel();
+            DataContext = new DataGridSampeViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

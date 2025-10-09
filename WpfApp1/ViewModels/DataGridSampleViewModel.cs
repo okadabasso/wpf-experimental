@@ -8,12 +8,12 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace WpfApp1.ViewModels
 {
-    public partial class Page1ViewModel : ObservableObject
+    public partial class DataGridSampeViewModel : ObservableObject
     {
         [ObservableProperty]
         public partial ObservableCollection<EditItem> Items { get; set; }
 
-        public Page1ViewModel()
+        public DataGridSampeViewModel()
         {
             Items = new ObservableCollection<EditItem>() { 
                 new EditItem(){ Name = "item 1", Value = 1001 },
