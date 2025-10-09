@@ -19,71 +19,102 @@
                         <Grid KeyboardNavigation.TabNavigation="Local">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
+                                <!-- タブヘッダー -->
                                 <RowDefinition Height="*"/>
+                                <!-- コンテンツ -->
                             </Grid.RowDefinitions>
-                            <Border BorderBrush="{StaticResource Gray300}" BorderThickness="1,0,1,0">
-                                <Grid Grid.Row="0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <ScrollViewer Grid.Column="0" x:Name="tabScroll" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
-                                        <TabPanel x:Name="HeaderPanel" IsItemsHost="True" Panel.ZIndex="1" KeyboardNavigation.TabIndex="1"  />
-                                    </ScrollViewer>
-                                    <StackPanel Grid.Column="1" Orientation="Horizontal" DockPanel.Dock="Right" Margin="4,0,0,0" VerticalAlignment="Bottom">
-                                        <Button x:Name="tabScrollLeft" Click="tabScrollLeft_Click" Width="20" Height="20" Padding="2">
-                                            <Button.Content>
-                                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronLeft}"></TextBlock>
-                                            </Button.Content>
-                                        </Button>
-                                        <Button x:Name="tabScrollRight" Click="tabScrollRight_Click" Width="20" Height="20" Padding="2">
-                                            <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronRight}"></TextBlock>
-                                        </Button>
-                                    </StackPanel>
-                                </Grid>
 
+                            <!-- タブヘッダー -->
+                            <Grid Grid.Row="0" Panel.ZIndex="10">
+                                <Border BorderBrush="{StaticResource Green300}" BorderThickness="0">
+                                    <DockPanel>
+                                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="4,0,0,0" VerticalAlignment="Bottom">
+                                            <Button x:Name="tabScrollLeft" Click="tabScrollLeft_Click" Width="20" Height="20" Padding="2">
+                                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronLeft}"/>
+                                            </Button>
+                                            <Button x:Name="tabScrollRight" Click="tabScrollRight_Click" Width="20" Height="20" Padding="2">
+                                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronRight}"/>
+                                            </Button>
+                                        </StackPanel>
+                                        <ScrollViewer x:Name="tabScroll" Panel.ZIndex="10" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                            <ItemsPresenter />
+                                        </ScrollViewer>
+                                    </DockPanel>
+                                </Border>
+                            </Grid>
+
+                            <!-- 赤枠（コンテンツの下） -->
+                            <Border Grid.Row="1"
+                            BorderBrush="{StaticResource Gray300}"
+                            BorderThickness="1"
+                            Panel.ZIndex="0"
+                            Margin="0,-1,0,0">
+                                <ContentPresenter x:Name="PART_SelectedContentHost"
+                                          ContentSource="SelectedContent"/>
                             </Border>
-                            <ContentPresenter x:Name="PART_SelectedContentHost" Grid.Row="1" ContentSource="SelectedContent"/>
+
                         </Grid>
                     </ControlTemplate>
-                    
                 </Setter.Value>
             </Setter>
         </Style>
+
         <Style TargetType="TabItem">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Width" Value="120"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
-                        <Grid x:Name="Panel">
-                            <Border x:Name="Bd" BorderBrush="{StaticResource Gray300}" BorderThickness="1,1,1,1" Background="{TemplateBinding Background}" Padding="10,2" Margin="-1,0,0,0">
-                                <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        <Grid x:Name="Panel" Panel.ZIndex="10">
+                            <Border x:Name="Bd"
+                            BorderBrush="{StaticResource Gray300}"
+                            BorderThickness="1"
+                            Background="{StaticResource Gray50}"
+                            Padding="10,2"
+                            Margin="0,0,0,0"  
+                                Panel.ZIndex="0">
+                                <ContentPresenter x:Name="ContentSite"
+                                          ContentSource="Header"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
                             </Border>
                         </Grid>
                         <ControlTemplate.Triggers>
+                            <!-- アクティブタブは赤枠を完全に覆う -->
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Bd" Property="BorderThickness" Value="1,1,1,0"/>
-                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Blue50}"/>
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="False">
-                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Gray300}"/>
                                 <Setter TargetName="Bd" Property="Background" Value="White"/>
+                                <Setter TargetName="Bd" Property="Margin" Value="0,0,0,-1"/>
+                                <Setter Property="Panel.ZIndex" Value="300"/>
                             </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="ContentSite" Property="TextElement.Foreground" Value="{StaticResource Gray300}"/>
+                            <!-- 非アクティブタブは赤枠が下端に見える -->
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Gray100}"/>
+                                <Setter TargetName="Bd" Property="Margin" Value="0,0,0,0"/>
+                                <Setter Property="Panel.ZIndex" Value="10"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+        <Style TargetType="TabPanel">
+            <Setter Property="Background" Value="AliceBlue"></Setter>
+        </Style>
     </Page.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TabControl x:Name="tab" Grid.Column="0" Background="White" BorderThickness="1" BorderBrush="{StaticResource Gray300}" TabStripPlacement="Top" SelectedIndex="10">
-                <TabItem Header="Home" Background="White">
-                    <Grid Background="White" >
+        <TabControl x:Name="tab" Grid.Column="0" Background="White" BorderThickness="1" BorderBrush="{StaticResource Gray300}" TabStripPlacement="Top"  SelectedIndex="10">
+            <TabControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <TabPanel IsItemsHost="True"/>
+                </ItemsPanelTemplate>
+            </TabControl.ItemsPanel>
+            <TabItem Header="Home">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
@@ -91,7 +122,7 @@
                         <TextBlock Grid.Row="0" Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
                     </Grid>
                 </TabItem>
-                <TabItem Header="About" Background="White">
+                <TabItem Header="About">
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
@@ -99,11 +130,11 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <TextBlock Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+                            <TextBlock Text="About" FontSize="{StaticResource LargeFontSize}"></TextBlock>
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Contact" Background="White">
+                <TabItem Header="Contact">
                     <Grid Background="White">
                         <TextBlock Text="Contact" FontSize="{StaticResource LargeFontSize}"></TextBlock>
                     </Grid>
