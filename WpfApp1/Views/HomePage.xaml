@@ -89,10 +89,6 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
-                        <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" >
-                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Bar}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Home}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </StackPanel>
                     </Grid>
                 </TabItem>
                 <TabItem Header="About" Background="White">
@@ -105,21 +101,6 @@
                         <Grid Grid.Row="0">
                             <TextBlock Text="Home" FontSize="{StaticResource LargeFontSize}"></TextBlock>
                         </Grid>
-                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock FontFamily="{StaticResource FAFont}" Text="{x:Static resources:FAIcons.Home}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                            <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center" Margin="8,0,0,0"></TextBlock>
-                        </StackPanel>
-                        <StackPanel Grid.Row="2" Orientation="Horizontal">
-                            <Border Width="16" Height="16" BorderThickness="1" BorderBrush="Black" Margin="0,0,16,0" HorizontalAlignment="Center">
-                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronRight}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
-                            </Border>
-                            <Border Width="16" Height="16" BorderThickness="1" BorderBrush="Black">
-                                <TextBlock FontFamily="{StaticResource FAFont}" FontSize="12" Text="{x:Static resources:FAIcons.ChevronDown}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
-                            </Border>
-                        </StackPanel>
-
                     </Grid>
                 </TabItem>
                 <TabItem Header="Contact" Background="White">

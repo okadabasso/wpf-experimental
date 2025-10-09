@@ -19,9 +19,9 @@ namespace WpfApp1.Views
     /// <summary>
     /// Page1.xaml の相互作用ロジック
     /// </summary>
-    public partial class Page1 : Page
+    public partial class DataGridSample : Page
     {
-        public Page1()
+        public DataGridSample()
         {
             InitializeComponent();
             DataContext = new Page1ViewModel();

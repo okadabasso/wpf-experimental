@@ -14,12 +14,12 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <TextBlock Text="TreeView" FontSize="{StaticResource LargeFontSize}" Margin="8" Grid.Row="0"></TextBlock>
         <!-- TreeViewの追加 -->
-        <TreeView Grid.Column="0" ItemsSource="{Binding Project.Tests}" BorderBrush="#FFCCCCCC" BorderThickness="1"
+        <TreeView Grid.Row="1" ItemsSource="{Binding Project.Tests}" BorderBrush="#FFCCCCCC" BorderThickness="1"
                   HorizontalContentAlignment="Stretch">
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type viewModels:TestSuite}" ItemsSource="{Binding TestCases}">
@@ -39,55 +39,5 @@
             </TreeView.Resources>
         </TreeView>
 
-        <Grid Grid.Row="1" >
-            <DataGrid ItemsSource="{Binding Project.Tests}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                    <DataGridTemplateColumn Header="Test Cases">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <ItemsControl ItemsSource="{Binding TestCases}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding Description}" />
-
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-
-        </Grid>
-
-        <Grid Grid.Row="2">
-            <ListView ItemsSource="{Binding Project.Tests}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Text="{Binding Name}"></TextBlock>
-                            <ListView Grid.Row="1" ItemsSource="{Binding TestCases}">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <TextBlock Text="{Binding Description}" />
-                                        </Grid>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
     </Grid>
 </Window>

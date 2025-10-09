@@ -23,7 +23,7 @@ namespace WpfApp1.ViewModels
             NavigationItems = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Home", FAIcons.Home, typeof(HomePage)),
-                new NavigationItem("Page 1", FAIcons.Document, typeof(Page1)),
+                new NavigationItem("DataGridSample", FAIcons.Document, typeof(DataGridSample)),
                 new NavigationItem("Buttons", FAIcons.List, typeof(ButtonSamplePage)),
                 new NavigationItem("Form Elements", FAIcons.List, typeof(FormElementSample)),
             };

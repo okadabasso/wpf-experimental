@@ -127,6 +127,7 @@
                                        HorizontalAlignment="Center" 
                                        VerticalAlignment="Center" 
                                        Foreground="{StaticResource Gray50}"
+                                       ToolTip="{Binding Text}"
                                        />
 
                             </Grid>
