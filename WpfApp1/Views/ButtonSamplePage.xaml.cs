@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Microsoft.Extensions.DependencyInjection;
 namespace WpfApp1.Views
 {
     /// <summary>
@@ -20,14 +20,12 @@ namespace WpfApp1.Views
     /// </summary>
     public partial class ButtonSamplePage : Page
     {
-        public ButtonSamplePage()
+        private readonly IServiceProvider _serviceProvider;
+        public ButtonSamplePage(IServiceProvider serviceProvider)
         {
+            _serviceProvider = serviceProvider;
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new DataGridSample());
-        }
     }
 }

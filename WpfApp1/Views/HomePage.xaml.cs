@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace WpfApp1.Views
 {
@@ -21,17 +23,13 @@ namespace WpfApp1.Views
     /// </summary>
     public partial class HomePage : Page
     {
-        public HomePage()
+        public HomePage(HomePageViewModel viewModel)
+        
         {
             InitializeComponent();
-
-            DataContext = new HomePageViewModel();
+            DataContext = viewModel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void tabScrollLeft_Click(object sender, RoutedEventArgs e)
         {

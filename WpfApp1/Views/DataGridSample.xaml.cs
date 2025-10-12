@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace WpfApp1.Views
 {
@@ -21,10 +23,10 @@ namespace WpfApp1.Views
     /// </summary>
     public partial class DataGridSample : Page
     {
-        public DataGridSample()
+        public DataGridSample(DataGridSampeViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = new DataGridSampeViewModel();
+            DataContext = viewModel;
         }
     }
 }
