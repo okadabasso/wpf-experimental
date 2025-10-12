@@ -13,6 +13,9 @@ using WpfApp1.ViewModels;
 using WpfApp1.Views;
 using System.Globalization;
 using System.Reflection;
+using DryIoc;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 namespace WpfApp1;
     
 /// <summary>
@@ -21,16 +24,21 @@ namespace WpfApp1;
 public partial class MainWindow : Window
 {
     private bool _isMenuOpen = false;
-
-    public MainWindow()
+    private readonly IServiceProvider _serviceProvider;
+    private readonly ILogger<MainWindow> _logger;
+    public MainWindow(IServiceProvider serviceProvider, ILogger<MainWindow> logger)
     {
         InitializeComponent();
-        DataContext = new MainWindowViewModel();
+        DataContext = serviceProvider.GetRequiredService<MainWindowViewModel>();
+        _serviceProvider = serviceProvider;
+        _logger = logger;
 
-        ContentFrame.Navigate(new HomePage());
+        var homePage = serviceProvider.GetRequiredService<HomePage>();
+        ContentFrame.Navigate(homePage);
         NavigationMenu.SelectedIndex = 0;
-    }
 
+        _logger.LogInformation("MainWindow initialized.");
+    }
 
     // メニューの開閉を切り替える
     private void ToggleMenu()
@@ -49,6 +57,7 @@ public partial class MainWindow : Window
         }
 
         _isMenuOpen = !_isMenuOpen;
+        _logger.LogInformation("Menu toggled. IsMenuOpen: {IsMenuOpen}", _isMenuOpen);
     }
 
     private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -58,15 +67,15 @@ public partial class MainWindow : Window
 
     private void NavigationMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
+        _logger.LogInformation("NavigationMenu selection changed.");
         if (NavigationMenu.SelectedItem is NavigationItem selectedItem)
         {
-            var viewConstructor = selectedItem.View.GetConstructor(Type.EmptyTypes);
-            if (viewConstructor == null)
+            var view = _serviceProvider.GetService(selectedItem.View);
+            if (view != null)
             {
-                throw new InvalidOperationException("View must have a parameterless constructor");
+                ContentFrame.Navigate(view);
+                return;
             }
-            var view = viewConstructor.Invoke(null);
-            ContentFrame.Navigate(view);
 
         }
     }
