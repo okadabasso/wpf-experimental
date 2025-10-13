@@ -76,7 +76,7 @@ namespace WpfApp1.ViewModels
             }
 
             // Create a new tab with a unique title
-            var view = _componentFactory.Create<TabView1>("MenuItem1", "This is MenuItem1", new Action<object>(CloseTab));
+            var view = _componentFactory.Create<TabView1>("MenuItem1", $"This is MenuItem1 {DateTime.Now}", new Action<object>(CloseTab));
             var tabItem = new TabItem()
             {
                 Header = title,

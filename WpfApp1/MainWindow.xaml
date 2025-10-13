@@ -143,6 +143,6 @@
             </ListBox>
         </Grid>
 
-        <Frame Grid.Column="1" Name="ContentFrame" NavigationUIVisibility="Hidden" Padding="16, 8" />
+        <Frame Grid.Column="1" Name="ContentFrame" NavigationUIVisibility="Hidden" Padding="8, 8" />
     </Grid>
 </Window>
