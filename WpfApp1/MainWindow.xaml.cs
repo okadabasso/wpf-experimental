@@ -16,6 +16,7 @@ using System.Reflection;
 using DryIoc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Collections.ObjectModel;
 namespace WpfApp1;
     
 /// <summary>
@@ -26,6 +27,7 @@ public partial class MainWindow : Window
     private bool _isMenuOpen = false;
     private readonly IServiceProvider _serviceProvider;
     private readonly ILogger<MainWindow> _logger;
+    private readonly ObservableCollection<FrameworkElement> _openViews = new ObservableCollection<FrameworkElement>();
     public MainWindow(IServiceProvider serviceProvider, ILogger<MainWindow> logger)
     {
         InitializeComponent();
@@ -36,6 +38,8 @@ public partial class MainWindow : Window
         var homePage = serviceProvider.GetRequiredService<HomePage>();
         ContentFrame.Navigate(homePage);
         NavigationMenu.SelectedIndex = 0;
+
+        _openViews.Add(homePage);
 
         _logger.LogInformation("MainWindow initialized.");
     }
@@ -70,10 +74,19 @@ public partial class MainWindow : Window
         _logger.LogInformation("NavigationMenu selection changed.");
         if (NavigationMenu.SelectedItem is NavigationItem selectedItem)
         {
-            var view = _serviceProvider.GetService(selectedItem.View);
+            if(_openViews.Any(v => v.GetType() == selectedItem.View))
+            {
+                var existingView = _openViews.First(v => v.GetType() == selectedItem.View) as FrameworkElement;
+                ContentFrame.Navigate(existingView);
+                _logger.LogInformation("Navigated to existing {View}.", selectedItem.View.Name);
+                return;
+            }
+            var view = _serviceProvider.GetService(selectedItem.View) as FrameworkElement;
             if (view != null)
             {
                 ContentFrame.Navigate(view);
+                _openViews.Add(view);
+                _logger.LogInformation("Navigated to {View}.", selectedItem.View.Name);
                 return;
             }
 
