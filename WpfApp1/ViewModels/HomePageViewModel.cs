@@ -16,15 +16,15 @@ namespace WpfApp1.ViewModels
     public partial class HomePageViewModel : ObservableObject
     {
         IServiceProvider _serviceProvider;
-        TabContentFactory _tabContentFactory;
+        ComponentFactory _componentFactory;
         [ObservableProperty]
         public partial ObservableCollection<TabItem> TabItems { get; set; } = new ObservableCollection<TabItem>();
         [ObservableProperty]
         public partial TabItem? SelectedTab { get; set; } = null!;
-        public HomePageViewModel(IServiceProvider serviceProvider, TabContentFactory tabContentFactory)
+        public HomePageViewModel(IServiceProvider serviceProvider, ComponentFactory componentFactory)
         {
             _serviceProvider = serviceProvider;
-            _tabContentFactory = tabContentFactory;
+            _componentFactory = componentFactory;
             TabItems.Add(new TabItem() { Header = "Home", Content = _serviceProvider.GetRequiredService<MenuView>() });
             TabItems.Add(new TabItem() { Header = "About", Content = _serviceProvider.GetRequiredService<TabView1>() });
 
@@ -76,7 +76,7 @@ namespace WpfApp1.ViewModels
             }
 
             // Create a new tab with a unique title
-            var view = _tabContentFactory.CreateTab<TabView1>("MenuItem1", "This is MenuItem1", new Action<object>(CloseTab));
+            var view = _componentFactory.Create<TabView1>("MenuItem1", "This is MenuItem1", new Action<object>(CloseTab));
             var tabItem = new TabItem()
             {
                 Header = title,

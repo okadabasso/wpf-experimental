@@ -22,11 +22,11 @@ namespace WpfApp1.Views
     /// </summary>
     public partial class TabView1 : UserControl
     {
-        public TabView1(IServiceProvider serviceProvider, string header = "TabView1", string message = "This is TabView1", Action<object>? onClose = null)
+        public TabView1(ComponentFactory componentFactory, string header = "TabView1", string message = "This is TabView1", Action<object>? onClose = null)
         {
             InitializeComponent();
 
-            var viewModel = ActivatorUtilities.CreateInstance<TabContent>(serviceProvider, header, message);
+            var viewModel = componentFactory.Create<TabContent>(header, message);
             DataContext = viewModel;
 
             if (onClose != null)

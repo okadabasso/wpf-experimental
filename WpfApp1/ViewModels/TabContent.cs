@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace WpfApp1.ViewModels
 {
-    public partial class TabContent : ObservableObject
+    public partial class TabContent : AbstractTabContent
     {
         [ObservableProperty]
         public partial string Header { get; set; }
@@ -35,12 +36,15 @@ namespace WpfApp1.ViewModels
             IsSelected = false;
             ContentType = typeof(object);
         }
-        [RelayCommand]
-        public void CloseTab()
+
+        public override void CloseTab()
         {
-            TabClosed?.Invoke(this, this);
+            if(MessageBox.Show($"Close {Header}?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                return;
+            }
+            base.CloseTab();
         }
-        public event EventHandler<object>? TabClosed;
     }
 
     

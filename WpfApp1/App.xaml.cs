@@ -144,7 +144,7 @@ public partial class App : Application
         container.Register<TabContent>(Reuse.Transient);
 
         // tab factory
-        container.Register<TabContentFactory>(Reuse.Singleton);
+        container.Register<ComponentFactory>(Reuse.Singleton);
         return container;
     }
 
