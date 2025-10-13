@@ -27,6 +27,8 @@ public partial class App : Application
 
     private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
     {
+        var logger = _serviceProvider?.GetService<ILogger<App>>();
+        logger?.LogError(e.Exception, "Unhandled exception occurred");
         string errorMessage = $"予期しないエラーが発生しました:\n{e.Exception.Message}\n\nアプリケーションを続行しますか？";
 
         var result = MessageBox.Show(errorMessage,
@@ -46,7 +48,9 @@ public partial class App : Application
 
     private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
-        string errorMessage = $"致命的なエラーが発生しました:\n{e.ExceptionObject}";
+           var logger = _serviceProvider?.GetService<ILogger<App>>();
+        logger?.LogError($"Unhandled exception occurred\n{e.ExceptionObject}");
+     string errorMessage = $"致命的なエラーが発生しました:\n{e.ExceptionObject}";
 
         MessageBox.Show(errorMessage,
                        "致命的エラー",
@@ -72,7 +76,6 @@ public partial class App : Application
             {
                 throw new InvalidOperationException("MainWindow の取得に失敗しました。");
             }
-
             mainWindow.Show();
         }
         catch (Exception ex)
@@ -134,10 +137,14 @@ public partial class App : Application
         container.Register<FormElementSample>(Reuse.Transient);
         container.Register<HomePage>(Reuse.Transient);
         container.Register<TabView1>(Reuse.Transient);
+        container.Register<MenuView>(Reuse.Transient);
         // ViewModel を登録する
         container.Register<DataGridSampeViewModel>(Reuse.Transient);
         container.Register<HomePageViewModel>(Reuse.Transient);
         container.Register<TabContent>(Reuse.Transient);
+
+        // tab factory
+        container.Register<TabContentFactory>(Reuse.Singleton);
         return container;
     }
 

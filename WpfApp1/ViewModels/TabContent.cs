@@ -11,13 +11,37 @@ namespace WpfApp1.ViewModels
     public partial class TabContent : ObservableObject
     {
         [ObservableProperty]
-        public partial string Title { get; set; }
+        public partial string Header { get; set; }
         [ObservableProperty]
         public partial string Message { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsSelected { get; set; }
+
+
+        [ObservableProperty]
+        public partial Type ContentType { get; set; }
         public TabContent()
         {
-            Title = "";
+            Header = "";
             Message = "";
+            IsSelected = false;
+            ContentType = typeof(object);
         }
+        public TabContent(string header, string message)
+        {
+            Header = header;
+            Message = message;
+            IsSelected = false;
+            ContentType = typeof(object);
+        }
+        [RelayCommand]
+        public void CloseTab()
+        {
+            TabClosed?.Invoke(this, this);
+        }
+        public event EventHandler<object>? TabClosed;
     }
+
+    
 }

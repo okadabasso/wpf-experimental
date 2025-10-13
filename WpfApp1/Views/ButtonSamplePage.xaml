@@ -46,8 +46,6 @@
                             <TextBlock Text="Info" Style="{StaticResource ButtonText.Info}" />
                         </Button.Content>
                     </Button>
-                    <Button Content="Sample"/>
-                    <TextBox Width="200" Height="48" Margin="8,0,0,0" VerticalAlignment="Center" Text="Sample TextBox"/>
                 </StackPanel>
 
 
