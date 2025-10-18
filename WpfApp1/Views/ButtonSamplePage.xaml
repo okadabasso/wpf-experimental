@@ -1,4 +1,4 @@
-﻿<Page x:Class="WpfApp1.Views.ButtonSamplePage"
+<Page x:Class="WpfApp1.Views.ButtonSamplePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,7 +10,7 @@
 
     <StackPanel Orientation="Vertical">
         <StackPanel>
-            <TextBlock Text="Buttons" FontSize="{StaticResource LargeFontSize}"></TextBlock>
+            <TextBlock Text="Buttons" FontSize="{StaticResource Font.Size.Large}"></TextBlock>
         </StackPanel>
         <ScrollViewer Margin="0,16,0,0">
             <StackPanel Orientation="Vertical">

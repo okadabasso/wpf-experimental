@@ -1,4 +1,4 @@
-﻿<Page x:Class="WpfApp1.Views.HomePage"
+<Page x:Class="WpfApp1.Views.HomePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -11,7 +11,7 @@
       d:DesignWidth="800"
       Title="HomePage">
     <Page.Resources>
-        <FontFamily x:Key="FAFont">pack://application:,,,/WpfApp1;component/Assets/fontawesome/otfs/Font Awesome 6 Free-Solid-900.otf#Font Awesome 6 Free Solid</FontFamily>
+        <FontFamily x:Key="Font.Awesome">pack://application:,,,/WpfApp1;component/Assets/fontawesome/otfs/Font Awesome 6 Free-Solid-900.otf#Font Awesome 6 Free Solid</FontFamily>
         <Style TargetType="TabControl">
             <Setter Property="Template">
                 <Setter.Value>
@@ -39,7 +39,7 @@
                                                     Width="20"
                                                     Height="20"
                                                     Padding="2">
-                                                <TextBlock FontFamily="{StaticResource FAFont}"
+                                                <TextBlock FontFamily="{StaticResource Font.Awesome}"
                                                            FontSize="12"
                                                            Text="{x:Static resources:FAIcons.ChevronLeft}"/>
                                             </Button>
@@ -48,7 +48,7 @@
                                                     Width="20"
                                                     Height="20"
                                                     Padding="2">
-                                                <TextBlock FontFamily="{StaticResource FAFont}"
+                                                <TextBlock FontFamily="{StaticResource Font.Awesome}"
                                                            FontSize="12"
                                                            Text="{x:Static resources:FAIcons.ChevronRight}"/>
                                             </Button>
